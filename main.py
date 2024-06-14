@@ -6,11 +6,11 @@ class Weapon(ABC):
         pass
 class Sword(Weapon):
     def attack(self):
-        print(f'Боец наносит удар мечом.')
+        print("наносит удар мечом.")
 
 class Bow(Weapon):
     def attack(self):
-        print("Боец наносит удар из лука.")
+        print("наносит удар из лука.")
 class Fighter:
     def __init__(self, name):
         self.name = name
