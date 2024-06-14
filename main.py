@@ -10,7 +10,7 @@ class Sword(Weapon):
 
 class Bow(Weapon):
     def attack(self):
-        print("наносит удар из лука.")
+        print("делает выстрел из лука.")
 class Fighter:
     def __init__(self, name):
         self.name = name
