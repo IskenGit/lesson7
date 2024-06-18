@@ -24,10 +24,6 @@ SPEED = 15
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Змейка")
 
-# Загрузка звуков
-eat_sound = pygame.mixer.Sound("eat.wav")
-game_over_sound = pygame.mixer.Sound("game_over.wav")
-
 # Загрузка шрифтов
 font = pygame.font.SysFont(None, 35)
 
@@ -41,7 +37,7 @@ class Snake:
     def __init__(self):
         self.length = 1
         self.positions = [((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))]
-        self.direction = random.choice([pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT])
+        self.direction = random.choice([(0, -1), (0, 1), (-1, 0), (1, 0)])
         self.color = GREEN
 
     def get_head_position(self):
@@ -67,7 +63,7 @@ class Snake:
     def reset(self):
         self.length = 1
         self.positions = [((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))]
-        self.direction = random.choice([pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT])
+        self.direction = random.choice([(0, -1), (0, 1), (-1, 0), (1, 0)])
         game_over_sound.play()
         time.sleep(2)
 
@@ -132,4 +128,6 @@ def main():
 
 
 if __name__ == "__main__":
+    eat_sound = pygame.mixer.Sound("eat.wav")
+    game_over_sound = pygame.mixer.Sound("game_over.wav")
     main()
